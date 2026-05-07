@@ -1,0 +1,53 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Gestión de Usuarios</h2>
+    <button class="logout-btn" (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <!-- FORM -->
+  <div class="card form-card">
+    <h3>Crear usuario</h3>
+
+    <form *ngIf="role === 'admin'" [formGroup]="form" (ngSubmit)="createUser()">
+      <input formControlName="nombre" placeholder="Nombre">
+      <input formControlName="email" placeholder="Email">
+      <input formControlName="contrasenia" placeholder="Contraseña">
+
+      <button type="submit">Crear usuario</button>
+    </form>
+  </div>
+
+  <!-- TABLA -->
+  <div class="card">
+    <div class="table-header">
+      <h3>Lista de usuarios</h3>
+      <button (click)="loadUsers()">Cargar usuarios</button>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th *ngIf="role === 'admin'">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.email }}</td>
+
+          <td *ngIf="role === 'admin'">
+            <button class="delete-btn" (click)="deleteUser(user.id_usuario)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="divLogin">
+    <h2>Login</h2>
+    <div class="divIn">
+        <input [(ngModel)]="email" placeholder="Email">
+        <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+    </div>
+    
+    <button (click)="login()">Ingresar</button>
+    
+    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+</div>
