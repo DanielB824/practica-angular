@@ -11,8 +11,8 @@
 
     <form *ngIf="role === 'admin'" [formGroup]="form" (ngSubmit)="createUser()">
       <input formControlName="nombre" placeholder="Nombre">
-      <input formControlName="email" placeholder="Email">
-      <input formControlName="contrasenia" placeholder="Contraseña">
+      <input type="email" formControlName="email" placeholder="Email">
+      <input type="password" formControlName="contrasenia" placeholder="Contraseña">
 
       <button type="submit">Crear usuario</button>
     </form>
@@ -22,7 +22,6 @@
   <div class="card">
     <div class="table-header">
       <h3>Lista de usuarios</h3>
-      <button (click)="loadUsers()">Actualizar usuarios</button>
     </div>
     
     <table>
@@ -35,7 +34,7 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users; trackBy: trackByUser">
           <td>{{ user.nombre }}</td>
           <td>{{ user.email }}</td>
 

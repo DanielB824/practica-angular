@@ -15,8 +15,8 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<any> {
-    return this.http.get(API);
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(API);
   }
 
   createUser(user: any): Observable<any> {
