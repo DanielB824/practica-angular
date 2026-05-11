@@ -1,11 +1,15 @@
+
+
 <div class="divLogin">
-    <h2>Login</h2>
+    <h2>Inicio de Sesión</h2>
     <div class="divIn">
-        <input [(ngModel)]="email" placeholder="Email">
-        <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+        <input [(ngModel)]="email"placeholder="Correo electrónico">
+
+        <input type="password"[(ngModel)]="password"placeholder="Contraseña">
     </div>
-    
+
     <button (click)="login()">Ingresar</button>
-    
+
     <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
 </div>
