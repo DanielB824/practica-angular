@@ -9,7 +9,8 @@ import { UserService } from '../../services/user';
   selector: 'app-users',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './users.html'
+  templateUrl: './users.html',
+  styleUrl: './users.css'
 })
 
 
